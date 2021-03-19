@@ -26,7 +26,7 @@ void calc_mandelbrot(uint8_t image[Y][X]) {
                 y = 2*x*y + cy;
                 x = x_tmp;
             }
-            int  norm_iteration = k/40;
+            int  norm_iteration = k%255;
             image[i][j] = norm_iteration;
     }
     }
