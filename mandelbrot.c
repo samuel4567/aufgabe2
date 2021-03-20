@@ -18,11 +18,12 @@ void calc_mandelbrot(uint8_t image[Y][X]) {
         for(int j=0;j<X;j++){
             float x = 0.0;
             float y = 0.0;
-            float cx =j/X;
-            float cy = i/Y;
+            float cx =X/(float)j;
+            float cy = Y/(float)i;
             int k;
-            for(k=0;k<MAX_ITER && x*x + y*y > 2*2;k++){
-                float x_tmp = x*x - y*y + cx;
+	    float x_tmp;
+            for(k=0;k<MAX_ITER && x*x + y*y <= 2*2;k++){
+                x_tmp = x*x - y*y + cx;
                 y = 2*x*y + cy;
                 x = x_tmp;
             }
